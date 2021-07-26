@@ -19,6 +19,6 @@ jobs:
     - name: Run tests
       working-directory: src/
       run: cargo test --verbose
-    - name: Run
-      working-directory: src/
-      run: cargo run --verbose
+   # - name: Run #warnings to erros 
+    #  working-directory: src/
+   #   run: cargo run --verbose
