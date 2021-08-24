@@ -56,8 +56,8 @@ fn main() {
                 io::stdout().flush();
                 io::stdin().read_line(&mut amount);
 
-                let res = chain.new_transaction(sender.trim().to_string(), 
-                                        receiver.trim().to_string(), 
+                let res = chain.new_transaction(sender.trim().to_string(),
+                                        receiver.trim().to_string(),
                                         amount.trim().parse().unwrap());
 
                 match res {
