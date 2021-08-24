@@ -33,7 +33,7 @@ fn main() {
         io::stdout().flush();
         choice.clear();
         io::stdin().read_line(&mut choice);
-        println!("");
+        println!();
 
         match choice.trim().parse().unwrap() {
             0 =>
