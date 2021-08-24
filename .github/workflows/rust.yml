@@ -47,7 +47,7 @@ jobs:
       - run: cargo test --verbose --workspace --all-features
       - run: cargo test --verbose --workspace --no-default-features
       - run: cargo build --verbose
-      - run: cargo run --verbose
+      #- run: cargo run --verbose not possible
   clippy:
     name: Lint with clippy
     runs-on: ubuntu-latest
