@@ -127,7 +127,7 @@ impl Chain {
         while merkle.len() > 1 {
             let mut h1 = merkle.remove(0);
             let mut h2 = merkle.remove(0);
-            h1.push_str(&mut h2);
+            h1.push_str(&h2);
             let nh = Chain::hash(&h1);
             merkle.push(nh);
         }

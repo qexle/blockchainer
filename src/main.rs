@@ -1,9 +1,9 @@
 #[macro_use]
 extern crate serde_derive;
-
+//cargo clippy --workspace --all-targets --verbose
 use std::io;
-use std::process;
 use std::io::Write;
+use std::process;
 
 mod blockchain;
 
@@ -36,11 +36,10 @@ fn main() {
         println!();
 
         match choice.trim().parse().unwrap() {
-            0 =>
-            {
+            0 => {
                 println!("exiting!");
                 process::exit(0);
-            },
+            }
             1 => {
                 let mut sender = String::new();
                 let mut receiver = String::new();
@@ -56,26 +55,26 @@ fn main() {
                 io::stdout().flush();
                 io::stdin().read_line(&mut amount);
 
-                let res = chain.new_transaction(sender.trim().to_string(),
-                                        receiver.trim().to_string(),
-                                        amount.trim().parse().unwrap());
+                let res = chain.new_transaction(
+                    sender.trim().to_string(),
+                    receiver.trim().to_string(),
+                    amount.trim().parse().unwrap(),
+                );
 
                 match res {
                     true => println!("Transaction Sucessfully Added"),
                     false => println!("Transaction Failed"),
                 }
-            },
-            2 =>
-            {
+            }
+            2 => {
                 println!("Generating block");
                 let res = chain.generate_new_block();
                 match res {
                     true => println!("Block Generated Successfully"),
                     false => println!("Block Generation Failed"),
                 }
-            },
-            3 =>
-            {
+            }
+            3 => {
                 let mut new_diff = String::new();
                 print!("enter new difficulty: ");
                 io::stdout().flush();
@@ -85,8 +84,8 @@ fn main() {
                     true => println!("Updated Difficulty"),
                     false => println!("Failed Update Difficulty"),
                 }
-            },
-            4 =>{
+            }
+            4 => {
                 let mut new_reward = String::new();
                 print!("Enter new reward: ");
                 io::stdout().flush();
@@ -99,6 +98,5 @@ fn main() {
             }
             _ => println!("Invalid option please retry"),
         }
-
     }
 }
