@@ -68,10 +68,3 @@ jobs:
         with:
           components: rustfmt
       - run: cargo fmt --all -- --check
-  runtimings:
-    name: Timings
-    uses: hecrj/setup-rust-action@v1
-    with:
-      rust-version: '${{ matrix.rust }}'
-      if: matrix.rust == 'nightly'
-      run: cargo build -Z timings --verbose
