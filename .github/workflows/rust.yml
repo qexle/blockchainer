@@ -46,9 +46,9 @@ jobs:
       - run: cargo test --verbose --workspace
       - run: cargo test --verbose --workspace --all-features
       - run: cargo test --verbose --workspace --no-default-features
-      - run: cargo build -Z timings --verbose
-      #- if: matrix.rust == 'nightly'
-        #run: cargo build -Z timings --verbose
+      - run: cargo build --verbose
+      - if: matrix.rust == 'nightly'
+        run: cargo build -Z timings --verbose
   clippy:
     name: Lint with clippy
     runs-on: ubuntu-latest
