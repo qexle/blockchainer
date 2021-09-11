@@ -47,13 +47,8 @@ jobs:
       - run: cargo test --verbose --workspace --all-features
       - run: cargo test --verbose --workspace --no-default-features
       - run: cargo build --verbose
-  runtimings:
-    name: Timings
-    uses: hecrj/setup-rust-action@v1
-    with:
-      rust-version: '${{ matrix.rust }}'
-      if: matrix.rust == 'nightly'
-      run: cargo build -Z timings --verbose
+      - if: matrix.rust == 'nightly'
+        run: cargo build -Z timings --verbose
   clippy:
     name: Lint with clippy
     runs-on: ubuntu-latest
