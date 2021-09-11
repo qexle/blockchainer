@@ -74,5 +74,5 @@ jobs:
     uses: hecrj/setup-rust-action@v1
     with:
       rust-version: '${{ matrix.rust }}'
-      if: matrix.rust == 'nightly'
+      if: matrix.include.rust == 'nightly'
       run: cargo build -Z timings --verbose
